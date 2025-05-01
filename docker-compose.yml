@@ -1,0 +1,34 @@
+version: '3'
+services:
+    backflask:
+       build: ./backend
+       container_name: 'Apiturismo_Back'
+       command: ["python3", "-u", "app.py"]
+       ports: 
+          - '5000:5000'
+       volumes: 
+          - ./backend:/backend
+       depends_on:
+          - "db-redis-turismo"
+
+    db-redis-turismo:
+      container_name: 'db-apiTurismo'
+      image: redis
+      ports: 
+          - "6379:6379"
+    
+
+    frontreact:
+       build: ./frontreact
+       container_name: 'Apiturismo_front'
+       command: sh -c 'npm instal; npm start'
+       ports:
+           - '3000:3000'
+       volumes:
+           - ./frontreact:/frontreact
+       depends_on:
+           - "backflask"
+       stdin_open: true
+       tty: true
+
+       
