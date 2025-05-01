@@ -57,7 +57,7 @@ const AddPlaceForm = ({ onPlaceAdded }) => {
                         value={latitud}
                         onChange={(e) => {
                             setLatitud(e.target.value);
-                            console.log("Latitud:", e.target.value); // <-- Agrega esto
+                            console.log("Latitud:", e.target.value); 
                         }}
                         required
                     />
@@ -65,14 +65,14 @@ const AddPlaceForm = ({ onPlaceAdded }) => {
                 <br />
                 <label>
                     Longitud:
-                    {/* Aquí debes reemplazar tu input de longitud actual */}
+                    
                     <input
                         type="number"
                         step="any"
                         value={longitud}
                         onChange={(e) => {
                             setLongitud(e.target.value);
-                            console.log("Longitud:", e.target.value); // <-- Agrega esto
+                            console.log("Longitud:", e.target.value); 
                         }}
                         required
                     />
